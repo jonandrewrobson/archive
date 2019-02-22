@@ -1,4 +1,4 @@
-# [JournalBook](https://journalbook.co.uk)
+# Archival
 
 Built with [Preact](http://preactjs.com) and [IDB](https://npmjs.com/package/idb) with right to left support.
 
