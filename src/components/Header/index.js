@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { Link } from 'preact-router/match';
 import { url } from '../../utils/date';
+import Bucketlist from '../../routes/bucketlist';
 
 const today = url();
 
@@ -42,17 +43,17 @@ const Header = ({ onboarded = false }) => (
         </Link>
       )}
       {onboarded && (
-        <Link href={`/${new Date().getFullYear()}`}>
+        <Link href={"/bucketlist"}>
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
           >
-            <title>Review</title>
+            <title>Bucketlist</title>
             <path
-              d="M19 3h-2v-1c0-0.6-0.4-1-1-1s-1 0.4-1 1v1h-6v-1c0-0.6-0.4-1-1-1s-1 0.4-1 1v1h-2c-1.7 0-3 1.3-3 3v14c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3v-14c0-1.7-1.3-3-3-3zM5 5h2v1c0 0.6 0.4 1 1 1s1-0.4 1-1v-1h6v1c0 0.6 0.4 1 1 1s1-0.4 1-1v-1h2c0.6 0 1 0.4 1 1v3h-16v-3c0-0.6 0.4-1 1-1zM19 21h-14c-0.6 0-1-0.4-1-1v-9h16v9c0 0.6-0.4 1-1 1z"
+              d="M7 15h7v2H7zm0-4h10v2H7zm0-4h10v2H7zm12-4h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-.14        0-.27.01-.4.04-.39.08-.74.28-1.01.55-.18.18-.33.4-.43.64-.1.23-.16.49-.16.77v14c0 .27.06.54.16.78s.25.45.43.64c.27.27.62.47 1.01.55.13.02.26.03.4.03h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM19 19H5V5h14v14z"
               fill="currentColor"
             />
           </svg>
@@ -70,6 +71,23 @@ const Header = ({ onboarded = false }) => (
             <title>Write</title>
             <path
               d="M20 1h-13.5c-1.9 0-3.5 1.6-3.5 3.5v15c0 1.9 1.6 3.5 3.5 3.5h13.5c0.6 0 1-0.4 1-1v-20c0-0.6-0.4-1-1-1zM6.5 3h12.5v13h-12.5c-0.5 0-1 0.1-1.5 0.4v-11.9c0-0.8 0.7-1.5 1.5-1.5zM6.5 21c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5h12.5v3h-12.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </Link>
+      )}
+      {onboarded && (
+        <Link href={`/${new Date().getFullYear()}`}>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+          >
+            <title>Review</title>
+            <path
+              d="M19 3h-2v-1c0-0.6-0.4-1-1-1s-1 0.4-1 1v1h-6v-1c0-0.6-0.4-1-1-1s-1 0.4-1 1v1h-2c-1.7 0-3 1.3-3 3v14c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3v-14c0-1.7-1.3-3-3-3zM5 5h2v1c0 0.6 0.4 1 1 1s1-0.4 1-1v-1h6v1c0 0.6 0.4 1 1 1s1-0.4 1-1v-1h2c0.6 0 1 0.4 1 1v3h-16v-3c0-0.6 0.4-1 1-1zM19 21h-14c-0.6 0-1-0.4-1-1v-9h16v9c0 0.6-0.4 1-1 1z"
               fill="currentColor"
             />
           </svg>

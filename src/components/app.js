@@ -11,7 +11,7 @@ import Year from '../routes/year';
 import Settings from '../routes/settings';
 import GetStarted from '../routes/get-started';
 import Highlights from '../routes/highlights';
-import About from '../routes/about';
+import Bucketlist from '../routes/bucketlist';
 import NotFound from '../routes/not-found';
 import { getDefaultTheme, prefersAnimation } from '../utils/theme';
 import { connect } from 'unistore/preact';
@@ -97,7 +97,7 @@ class App extends Component {
             <Home path="/" />
             <GetStarted path="/get-started/" />
             <Settings path="/settings/" />
-            <About path="/about/" />
+            <Bucketlist path="/bucketlist/" />
             <Highlights path="/highlights/" />
             <Day path="/:year/:month/:day" />
             <Month path="/:year/:month" />

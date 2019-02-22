@@ -9,11 +9,10 @@ const Home = () =>
   onboarded ? (
     <div class="wrap center home lift-children">
       <Link href={today}>
-        <h1>This is your JournalBook</h1>
+        <h1>Welcome to your personal archive.</h1>
         <img src="/assets/images/study.svg" class="home-image" alt="" />
         <span class="button">Start writing</span>
       </Link>
-      <Link href="/about/">About JournalBook</Link>
     </div>
   ) : (
     <div class="wrap wrap--thin center home lift-children">
@@ -37,11 +36,6 @@ const Home = () =>
           even add it to your homescreen as an app.
         </p>
       </div>
-      <p>
-        <small>
-          Created by <a href="https://trysmudford.com">Trys</a>
-        </small>
-      </p>
     </div>
   );
 
