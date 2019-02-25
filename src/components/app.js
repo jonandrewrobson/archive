@@ -1,7 +1,16 @@
-import { h, Component } from 'preact';
-import { Router } from 'preact-router';
-import { openDb } from 'idb';
-import { sendBeacon } from '../utils/beacon';
+import {
+  h,
+  Component
+} from 'preact';
+import {
+  Router
+} from 'preact-router';
+import {
+  openDb
+} from 'idb';
+import {
+  sendBeacon
+} from '../utils/beacon';
 import Header from './Header';
 
 import Home from '../routes/home';
@@ -14,10 +23,19 @@ import Highlights from '../routes/highlights';
 import Bucketlist from '../routes/bucketlist';
 import Playlist from '../routes/playlist';
 import NotFound from '../routes/not-found';
-import { getDefaultTheme, prefersAnimation } from '../utils/theme';
-import { connect } from 'unistore/preact';
-import { actions } from '../store/actions';
-import { DBError } from './DBError';
+import {
+  getDefaultTheme,
+  prefersAnimation
+} from '../utils/theme';
+import {
+  connect
+} from 'unistore/preact';
+import {
+  actions
+} from '../store/actions';
+import {
+  DBError
+} from './DBError';
 
 const isOnboarded = () => !!localStorage.getItem('journalbook_onboarded');
 
@@ -42,9 +60,8 @@ class App extends Component {
             udb.createObjectStore('settings', {
               theme: localStorage.getItem('journalbook_theme') || '',
               animation: window.matchMedia('(prefers-reduced-motion: reduce)')
-                .matches
-                ? 'off'
-                : '',
+                .matches ?
+                'off' : '',
             });
         }
       });
@@ -55,7 +72,9 @@ class App extends Component {
       if (this.props.settings) {
         if (this.props.settings.theme === '') {
           window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-            this.setState({ theme: e.matches ? 'dark' : '' });
+            this.setState({
+              theme: e.matches ? 'dark' : ''
+            });
           });
         }
 
@@ -63,12 +82,16 @@ class App extends Component {
           window
             .matchMedia('(prefers-reduced-motion: reduce)')
             .addListener(e => {
-              this.setState({ animation: e.matches ? 'off' : '' });
+              this.setState({
+                animation: e.matches ? 'off' : ''
+              });
             });
         }
       }
     } catch (e) {
-      this.setState({ dbError: true });
+      this.setState({
+        dbError: true
+      });
     }
   }
 
@@ -82,43 +105,71 @@ class App extends Component {
     }
   };
 
-  render({ settings = {}, db }, { onboarded, dbError }) {
+  render({
+    settings = {},
+    db
+  }, {
+    onboarded,
+    dbError
+  }) {
     const theme = settings.theme || getDefaultTheme(settings);
     const animation = settings.animation || prefersAnimation(settings);
 
-    return (
-      <div
-        id="app"
-        data-theme={theme}
-        data-reduce-motion={animation === 'off' ? 'true' : 'false'}
-      >
-        <Header onboarded={onboarded} />
-        {db && (
-          <Router onChange={this.handleRoute}>
-            <Home path="/" />
-            <GetStarted path="/get-started/" />
-            <Settings path="/settings/" />
-            <Bucketlist path="/bucketlist/" />
-            <Playlist path="/playlist/" />
-            <Highlights path="/highlights/" />
-            <Day path="/:year/:month/:day" />
-            <Month path="/:year/:month" />
-            <Year path="/:year" />
-            <NotFound default />
-          </Router>
-        )}
-        {dbError && (
-          <DBError
-            toggle={() =>
-              this.setState({
-                dbError: false,
-              })
-            }
+    return ( <
+        div id = "app"
+        data - theme = {
+          theme
+        }
+        data - reduce - motion = {
+          animation === 'off' ? 'true' : 'false'
+        } >
+        <
+        Header onboarded = {
+          onboarded
+        }
+        /> {
+        db && ( <
+          Router onChange = {
+            this.handleRoute
+          } >
+          <
+          Home path = "/" / >
+          <
+          GetStarted path = "/get-started/" / >
+          <
+          Settings path = "/settings/" / >
+          <
+          Bucketlist path = "/bucketlist/" / >
+          <
+          Playlist path = "/playlist/" / >
+          <
+          Highlights path = "/highlights/" / >
+          <
+          Day path = "/:year/:month/:day" / >
+          <
+          Month path = "/:year/:month" / >
+          <
+          Year path = "/:year" / >
+          <
+          NotFound
+          default / >
+          <
+          /Router>
+        )
+      } {
+        dbError && ( <
+          DBError toggle = {
+            () =>
+            this.setState({
+              dbError: false,
+            })
+          }
           />
-        )}
-      </div>
-    );
-  }
+        )
+      } <
+      /div>
+  );
+}
 }
 
 export default connect(

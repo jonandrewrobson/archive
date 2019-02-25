@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "Archival",
+  "name": "archival",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
@@ -10,7 +10,7 @@
     "build": "preact build --no-prerender",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
-    "lint": "eslint src"
+    "lint": "eslint \"**/* .{js,jsx}\""
   },
   "eslintIgnore": [
     "build/*"
@@ -18,6 +18,7 @@
   "devDependencies": {
     "eslint": "^4.9.0",
     "eslint-config-synacor": "^2.0.2",
+    "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.0",
     "fast-async": "^6.3.8",
@@ -27,11 +28,10 @@
     "preact-cli-plugin-env-vars": "^1.2.1",
     "preact-cli-plugin-netlify": "^1.1.0",
     "preact-render-spy": "^1.2.1",
-    "prettier": "1.15.3"
+    "prettier": "^1.15.3"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "eslint-config-prettier": "^3.3.0",
     "idb": "^3.0.2",
     "last.fm.api": "^0.1.3",
     "preact": "^8.2.6",
